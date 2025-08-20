@@ -79,9 +79,3 @@ r = Registro()
 r.Agregar_libro()
 r.Mostrar_libros()
 r.Volver_a_menu(r)
-# while True:
-#       pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
-#       if pregunta == 'si': r = Registro()
-#       elif pregunta == 'no':
-#         print('\n\tGracias por utilizar el sistema de registro de libros.\n')
-#         break
