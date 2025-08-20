@@ -4,7 +4,6 @@
 # ■ S - Principio de Responsabilidad Única = Single Responsibility Principle (SRP)
 
 # ■ Una clase debe tener una sola razón para cambiar.
-# ■ Cada clase debe encargarse de una única parte del funcionamiento del programa.
 # ■ Separar responsabilidades evita que los cambios en una parte del sistema afecten otras partes innecesariamente.
 
 class Libro :
@@ -79,3 +78,10 @@ r = Registro()
 r.Agregar_libro()
 r.Mostrar_libros()
 r.Volver_a_menu(r)
+
+class Agregar(Registro.Agregar_libro):
+  def __init__(self, registro):
+    self.registro = registro
+
+  def agregar_libro(self):
+    self.registro.Agregar_libro()
