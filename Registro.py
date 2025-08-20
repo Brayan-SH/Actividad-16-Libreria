@@ -1,5 +1,3 @@
-from diccionarioLibros import Libros
-
 # 📚 Gestión de Libros
 # > Registro completo de cada libro (título, autor, año, categoría/género, precio de venta)
 
@@ -23,7 +21,7 @@ class Libro :
 class Registro :  
   def __init__(self):
     # Diccionario para almacenar los libros
-    self.libro = Libros
+    self.libro = {}
   
   def agregar_libro(self):
     print('\n\t-------- Bienvenido al Registro de Libros --------')
@@ -68,5 +66,5 @@ while True :
     r.agregar_libro()
     r.mostrar_libros()
   if (pregunta == 'no') : 
-    print('\n\tGracias por utilizar el sistema de registro de libros.')
+    print('\n\tGracias por utilizar el sistema de registro de libros.\n')
     break
