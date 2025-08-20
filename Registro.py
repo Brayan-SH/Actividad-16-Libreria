@@ -30,7 +30,7 @@ class Registro :
     self.libro = {}
   
   def Agregar_libro(self):
-    print('\n\t-------- Bienvenido al Registro de Libros --------')
+    print('\n\n\t-------- Bienvenido al Registro de Libros --------')
     
     
     while True :
@@ -70,19 +70,20 @@ r = Registro()
 r.Agregar_libro()
 
 class Mostrar(Registro):
-  def __init__(self, Registro):
-    self.Registro = Registro
+  # def __init__(self, Registro):
+  #   self.Registro = Registro
 
-  def Mostrar_libro(self):
+  def Mostrar_libro(self, Registro):
+    self.Registro = Registro
     
-    print('-------- Bienvenido a la Libreria --------')
+    print('\n\t\t-------- Bienvenido a la Libreria --------')
     
     for index, lib in enumerate(self.Registro.libro.values(), start = 1):
       print(f"{index}. {'Libro'}")
       print(f"{lib.mostrar_libros()}")
     print()
     
-m = Mostrar(r)
+m = Mostrar()
 m.Mostrar_libro(r)
 
 r.Volver_a_menu(r)
