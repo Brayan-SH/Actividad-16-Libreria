@@ -81,11 +81,15 @@ r.Volver_a_menu(r)
 
 
 class Mostrar(Registro):
+  def __init__(self):
+    pass
+    super().__init__(self)
+    
   def Mostrar_libro(self, Registro):
-    super().__init__()
     
     self.Registro = Registro
     print(f"Título: {self.Registro.titulo}")
 
 
 m = Mostrar(r)
+m.Mostrar_libro(r)
