@@ -79,9 +79,13 @@ r.Agregar_libro()
 r.Mostrar_libros()
 r.Volver_a_menu(r)
 
-class Agregar(Registro.Agregar_libro):
-  def __init__(self, registro):
-    self.registro = registro
 
-  def agregar_libro(self):
-    self.registro.Agregar_libro()
+class Mostrar(Registro):
+  def Mostrar_libro(self, Registro):
+    super().__init__()
+    
+    self.Registro = Registro
+    print(f"Título: {self.Registro.titulo}")
+
+
+m = Mostrar(r)
