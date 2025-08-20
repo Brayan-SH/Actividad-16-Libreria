@@ -1,6 +1,12 @@
 # 📚 Gestión de Libros
 # > Registro completo de cada libro (título, autor, año, categoría/género, precio de venta)
 
+# ■ S - Principio de Responsabilidad Única = Single Responsibility Principle (SRP)
+
+# ■ Una clase debe tener una sola razón para cambiar.
+# ■ Cada clase debe encargarse de una única parte del funcionamiento del programa.
+# ■ Separar responsabilidades evita que los cambios en una parte del sistema afecten otras partes innecesariamente.
+
 class Libro :
   def __init__(self, titulo, autor, año, categoria, precio):
     self.titulo = titulo
@@ -18,12 +24,13 @@ class Libro :
       f'Precio: Q{self.precio}\n'
     )
     
-class Registro :  
+    
+class Registro :
   def __init__(self):
     # Diccionario para almacenar los libros
     self.libro = {}
   
-  def agregar_libro(self):
+  def Agregar_libro(self):
     print('\n\t-------- Bienvenido al Registro de Libros --------')
     
     
@@ -50,22 +57,31 @@ class Registro :
         self.libro[titulo.lower()] = Libro(titulo, autor, año, categoria, precio)
         print()
         
-  def mostrar_libros(self):
+  def Mostrar_libros(self):
     print('\n\t-------- Bienvenido a la Libreria --------')
     
     for index, Lib in enumerate(self.libro.values(), start = 1):
-            print(f"{index}. {Lib.mostrar_libros()}")
+            print(f"{index}. {'Libro'}")
+            print(f"{Lib.mostrar_libros()}")
     print()
 
-r = Registro()
-r.agregar_libro()
-r.mostrar_libros()
+  def Volver_a_menu(self, r):
+    while True:
+      pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
+      if pregunta == 'si': 
+        r.Agregar_libro()
+        r.Mostrar_libros()
+      elif pregunta == 'no':
+        print('\n\tGracias por utilizar el sistema de registro de libros.\n')
+        break
 
-while True :
-  pregunta = input('¿Desea agregar más libros? (si/no): ').strip().lower()
-  if (pregunta == 'si') :
-    r.agregar_libro()
-    r.mostrar_libros()
-  if (pregunta == 'no') : 
-    print('\n\tGracias por utilizar el sistema de registro de libros.\n')
-    break
+r = Registro()
+r.Agregar_libro()
+r.Mostrar_libros()
+r.Volver_a_menu(r)
+# while True:
+#       pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
+#       if pregunta == 'si': r = Registro()
+#       elif pregunta == 'no':
+#         print('\n\tGracias por utilizar el sistema de registro de libros.\n')
+#         break
