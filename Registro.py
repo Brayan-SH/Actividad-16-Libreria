@@ -51,9 +51,10 @@ class Registro :
         print()
         
   def mostrar_libros(self):
+    print('\n\t-------- Bienvenido a la Libreria --------')
     
     for index, Lib in enumerate(self.libro.values(), start = 1):
-            print(f"{Lib.mostrar_libros()}")
+            print(f"{index}. {Lib.mostrar_libros()}")
     print()
 
 r = Registro()
