@@ -6,6 +6,8 @@
 # ■ Una clase debe tener una sola razón para cambiar.
 # ■ Separar responsabilidades evita que los cambios en una parte del sistema afecten otras partes innecesariamente.
 
+
+# Clase Libro
 class Libro :
   def __init__(self, titulo, autor, año, categoria, precio):
     self.titulo = titulo
@@ -24,7 +26,9 @@ class Libro :
     )
     
     
+# Clase Registro
 class Registro :
+  
   def __init__(self):
     # Diccionario para almacenar los libros
     self.libro = {}
@@ -55,24 +59,11 @@ class Registro :
         
         self.libro[titulo.lower()] = Libro(titulo, autor, año, categoria, precio)
         print()
-        
-  def Volver_a_menu(self, r):
-    while True:
-      pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
-      if pregunta == 'si': 
-        r.Agregar_libro()
-        r.Mostrar_libros()
-      elif pregunta == 'no':
-        print('\n\tGracias por utilizar el sistema de registro de libros.\n')
-        break
 
-r = Registro()
-r.Agregar_libro()
 
+# Clase Mostrar
 class Mostrar(Registro):
-  # def __init__(self, Registro):
-  #   self.Registro = Registro
-
+  
   def Mostrar_libro(self, Registro):
     self.Registro = Registro
     
@@ -82,10 +73,35 @@ class Mostrar(Registro):
       print(f"{index}. {'Libro'}")
       print(f"{lib.mostrar_libros()}")
     print()
-    
-m = Mostrar()
-m.Mostrar_libro(r)
 
-r.Volver_a_menu(r)
+
+# Clase Volver
+class Volver(Registro):
+  def Volver_a_menu(self, Registro):
+    self.Registro = Registro
+
+    while True:
+      pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
+      if pregunta == 'si':
+        self.Registro.Agregar_libro()
+        self.Registro.Mostrar_libros()
+        
+      elif pregunta == 'no':
+        print('\n\tGracias por utilizar el sistema de registro de libros.\n')
+        print()
+        break
+
+
+# → Clase Registro
+registrar = Registro()
+registrar.Agregar_libro()
+
+# → Clase Mostrar
+imprimir = Mostrar()
+imprimir.Mostrar_libro(registrar)
+
+# → Clase Volver
+regresar = Volver()
+regresar.Volver_a_menu(registrar)
 
 
