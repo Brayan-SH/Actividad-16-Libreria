@@ -77,8 +77,11 @@ class Mostrar(Registro):
 # Clase Volver
 class Volver(Registro):
   
-  def Volver_a_menu(self, Registro):
-    self.Registro = Registro
+  def __init__(self, Registro): # Hereda de Registro para acceder a sus métodos y atributos
+    super().__init__() # Llamar al constructor Registro
+    self.Registro = Registro 
+  
+  def Volver_a_menu(self):
 
     while True:
       pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
@@ -104,7 +107,7 @@ imprimir = Mostrar()
 imprimir.Mostrar_libro(registrar)
 
 # → Clase Volver
-regresar = Volver()
-regresar.Volver_a_menu(registrar)
+regresar = Volver(registrar)
+regresar.Volver_a_menu()
 
 
