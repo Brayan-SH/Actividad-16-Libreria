@@ -35,15 +35,15 @@ class Registro :
   
   def Agregar_libro(self):
     print('\n\n\t-------- Bienvenido al Registro de Libros --------')
-    
+    print()
     
     while True :
-      titulo = input('Ingrese el título del libro > fin : ')
+      titulo = input('Ingrese el título del libro o escriba fin : ')
       
       # Verificar si el libro ya existe
       if titulo.lower() in self.libro:
         print('El libro ya existe en el registro.\n')
-        titulo = input('Ingrese un título diferente o escriba > fin : ')
+        titulo = input('Ingrese un título diferente o escriba fin : ')
         continue
 
       # Verificar si se desea finalizar el registro
@@ -72,11 +72,11 @@ class Mostrar(Registro):
     for index, lib in enumerate(self.Registro.libro.values(), start = 1):
       print(f"{index}. {'Libro'}")
       print(f"{lib.mostrar_libros()}")
-    print()
 
 
 # Clase Volver
 class Volver(Registro):
+  
   def Volver_a_menu(self, Registro):
     self.Registro = Registro
 
@@ -84,7 +84,10 @@ class Volver(Registro):
       pregunta = input('¿Desea volver al menú principal? (si/no): ').strip().lower()
       if pregunta == 'si':
         self.Registro.Agregar_libro()
-        self.Registro.Mostrar_libros()
+        
+        # → Clase Mostrar
+        imprimir = Mostrar()
+        imprimir.Mostrar_libro(registrar)
         
       elif pregunta == 'no':
         print('\n\tGracias por utilizar el sistema de registro de libros.\n')
